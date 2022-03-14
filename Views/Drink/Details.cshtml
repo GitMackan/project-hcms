@@ -1,0 +1,19 @@
+@model project_hcms.Models.Drink
+
+<h2 class="heading">@Html.DisplayFor(model => model.Name)</h2>
+<div class="item-container">
+    <h4>@Html.DisplayNameFor(model => model.Name)</h4>
+    <p>@Html.DisplayFor(model => model.Name)</p>
+
+    <h4>@Html.DisplayNameFor(model => model.Ingredients)</h4>
+    <p>@Html.DisplayFor(model => model.Ingredients)</p>
+
+    <h4>@Html.DisplayNameFor(model => model.Price)</h4>
+    <p>@Html.DisplayFor(model => model.Price)</p>
+
+    <p>Skapad @Html.DisplayFor(model => model.Registered) av användare: <b>@Html.DisplayFor(model => model.Username)</b></p>
+</div>
+
+<div class="btn edit"><a asp-action="Edit" asp-route-id="@Model?.Id">Ändra</a></div>
+<div class="back"><a asp-action="Index">Tillbaka</a></div>
+

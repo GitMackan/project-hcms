@@ -1,0 +1,45 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registera konto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Skapa ett nytt konto</h2>
+            <hr /><br>
+            <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+            <div class="form-floating">
+                
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <br>
+                <span asp-validation-for="Input.Email" class="errorMsg"></span>
+                <br>
+            </div>
+            <div class="form-floating">
+                <label asp-for="Input.Password">Lösenord</label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <br>
+                <span asp-validation-for="Input.Password" class="errorMsg"></span>
+                <br>
+            </div>
+            <div class="form-floating">
+                <label asp-for="Input.ConfirmPassword">Bekräfta lösenord</label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <br>
+                <span asp-validation-for="Input.ConfirmPassword" class="errorMsg"></span>
+                <br>
+            </div>
+            <button id="registerSubmit" type="submit" class="registerBtn">Registera</button>
+        </form>
+    </div>
+    
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

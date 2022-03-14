@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="greeting-container">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="greeting">
+        Du är inloggad som: @User.Identity?.Name
+    </li>
+    <li class="login">
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" class="logout">Logga ut</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="login">
+        <a asp-area="Identity" asp-page="/Account/Login">Logga in</a>
+    </li>
+}
+</ul>

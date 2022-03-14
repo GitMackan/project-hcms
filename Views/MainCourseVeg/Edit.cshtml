@@ -1,0 +1,46 @@
+@model project_hcms.Models.MainCourseVeg
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <div class="form-container">
+        <h4>Ändra huvudrätt</h4>
+        <hr />
+        <form asp-action="Edit">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <div class="error-container"><span asp-validation-for="Name" class="errorMsg"></span></div>
+            <br>
+
+            <label asp-for="Ingredients"></label>
+            <input asp-for="Ingredients" />
+            <div class="error-container"><span asp-validation-for="Ingredients" class="errorMsg"></span></div>
+            <br>
+            <label asp-for="Price" class="priceLabel"></label><br>
+            <input asp-for="Price" type="number" class="price" placeholder="0" />
+            <div class="error-container"><span asp-validation-for="Price" class="errorMsg"></span></div>
+            <input type="submit" value="Ändra" class="addBtn" />
+        </form>
+
+        <div>
+            <div class="back"><a asp-action="Index">Tillbaka</a></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="loginRequest">
+        <p>Du måste vara inloggad för denna sida!<br>
+            Vänligen logga in <a asp-area="Identity" asp-page="/Account/Login">här</a></p>
+        <br>
+        <br>
+        <p>Har du inget konto? Klicka <a asp-area="Identity" asp-page="/Account/Register">här</a> för att registrera ett
+            konto.</p>
+        <div class="back"><a asp-action="Index">Tillbaka</a></div>
+    </div>
+}

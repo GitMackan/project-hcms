@@ -1,0 +1,15 @@
+@model project_hcms.Models.MainCourseVeg
+
+<div class="form-container">
+    <h3>Är du säker på att du vill ta bort denna @Html.DisplayNameFor(model => model.Name)?</h3>
+
+    <p class="heading">@Html.DisplayFor(model => model.Name)</p>
+    <p>@Html.DisplayFor(model => model.Ingredients)</p>
+    <p>@Html.DisplayFor(model => model.Price):-</p>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Ta bort" class="btn delete" />
+        <div class="back"><a asp-action="Index">Tillbaka</a></div>
+    </form>
+</div>

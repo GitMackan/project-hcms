@@ -1,0 +1,26 @@
+@model IEnumerable<project_hcms.Models.Drink>
+
+<h2 class="heading">Drinkar</h2>
+
+@foreach (var item in Model)
+{
+    <div class="item-container">
+    <h4>@Html.DisplayNameFor(model => model.Name)</h4>
+    <p>@Html.DisplayFor(modelItem => item.Name)</p>
+
+    <h4>@Html.DisplayNameFor(model => model.Ingredients)</h4>
+    <p>@Html.DisplayFor(modelItem => item.Ingredients)</p>
+
+    <h4>@Html.DisplayNameFor(model => model.Price)</h4>
+    <p>@Html.DisplayFor(modelItem => item.Price):-</p>
+
+    <div class="btn-container">
+    <div class="btn edit"><a asp-action="Edit" asp-route-id="@item.Id">Ändra</a></div>
+    <div class="btn details"><a asp-action="Details" asp-route-id="@item.Id">Detaljer</a></div>
+    <div class="btn delete"><a asp-action="Delete" asp-route-id="@item.Id">Ta bort</a></div>
+    </div>
+    </div>
+}
+<div class="create">
+    <div class="btn new"><a asp-action="Create">Skapa ny</a></div>
+</div>

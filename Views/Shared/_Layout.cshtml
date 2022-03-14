@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Gott Tugg</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a asp-controller="Home" asp-action="Index" id="logo">Gott Tugg - Admin</a>
+        </div>
+        <partial name="_LoginPartial" />
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <nav class="navbar" id="navbar">
+                <ul class="menu">
+                    <li><a class="item" asp-controller="Home" asp-action="Index">Hem</a></li>
+                    <li><a class="item item2" asp-controller="MainCourse" asp-action="Index">Huvudrätter</a></li>
+                    <li><a class="item item3" asp-controller="Starter" asp-action="Index">Förrätter</a></li>
+                    <li><a class="item item4" asp-controller="Dessert" asp-action="Index">Efterrätter</a></li>
+                    <li><a class="item item5" asp-controller="Drink" asp-action="Index">Drinkar</a></li>
+                    <li><a class="item item2" asp-controller="MainCourseVeg" asp-action="Index">Vegetariskt</a></li>
+                    <li><a class="item item3" asp-controller="Appetizer" asp-action="Index">Aptitretare</a></li>
+                    <li><a class="item item4" asp-controller="Coffee" asp-action="Index">Kaffe & Tillbehör</a></li>
+                    <li><a class="item item5" asp-controller="VineBeer" asp-action="Index">Vin & Öl</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <p>&copy; 2022 - Gott Tugg Admin</p>
+        </div>
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
